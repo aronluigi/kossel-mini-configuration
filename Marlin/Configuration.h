@@ -447,7 +447,7 @@
   //#define DELTA_CALIBRATION_MENU
 
   // set the radius for the calibration probe points - max 0.8 * DELTA_PRINTABLE_RADIUS if DELTA_AUTO_CALIBRATION enabled
-  #define DELTA_CALIBRATION_RADIUS (DELTA_PRINTABLE_RADIUS - 18) // mm
+  #define DELTA_CALIBRATION_RADIUS (DELTA_PRINTABLE_RADIUS - 20 - 18) // mm
 
   // G33 Delta Auto-Calibration (Enable EEPROM_SETTINGS to store results)
   //#define DELTA_AUTO_CALIBRATION
@@ -689,8 +689,8 @@
  *      O-- FRONT --+
  *    (0,0)
  */
-#define X_PROBE_OFFSET_FROM_EXTRUDER 0     // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -10   // Y offset: -front +behind [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -0.4//-1.2     // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 21.7   // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER -3.5  // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
@@ -703,7 +703,7 @@
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
 
 // Use double touch for probing
-//#define PROBE_DOUBLE_TOUCH
+#define PROBE_DOUBLE_TOUCH
 
 /**
  * Allen key retractable z-probe as seen on many Kossel delta printers - http://reprap.org/wiki/Kossel#Automatic_bed_leveling_probe
@@ -717,12 +717,12 @@
 
   // Kossel Mini
   #define Z_PROBE_ALLEN_KEY_DEPLOY_1_X 30.0
-  #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y DELTA_PRINTABLE_RADIUS
+  #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Y (DELTA_PRINTABLE_RADIUS - 7)
   #define Z_PROBE_ALLEN_KEY_DEPLOY_1_Z 100.0
   #define Z_PROBE_ALLEN_KEY_DEPLOY_1_FEEDRATE XY_PROBE_SPEED
 
   #define Z_PROBE_ALLEN_KEY_DEPLOY_2_X 0.0
-  #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y DELTA_PRINTABLE_RADIUS
+  #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Y (DELTA_PRINTABLE_RADIUS - 7)
   #define Z_PROBE_ALLEN_KEY_DEPLOY_2_Z 100.0
   #define Z_PROBE_ALLEN_KEY_DEPLOY_2_FEEDRATE (XY_PROBE_SPEED/10)
 
@@ -733,8 +733,8 @@
 
   #define Z_PROBE_ALLEN_KEY_STOW_DEPTH 20
   // Move the probe into position
-  #define Z_PROBE_ALLEN_KEY_STOW_1_X -64.0
-  #define Z_PROBE_ALLEN_KEY_STOW_1_Y 56.0
+  #define Z_PROBE_ALLEN_KEY_STOW_1_X -47.0
+  #define Z_PROBE_ALLEN_KEY_STOW_1_Y 77.0
   #define Z_PROBE_ALLEN_KEY_STOW_1_Z 23.0
   #define Z_PROBE_ALLEN_KEY_STOW_1_FEEDRATE XY_PROBE_SPEED
   // Move the nozzle down further to push the probe into retracted position.
@@ -904,7 +904,7 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
@@ -930,7 +930,7 @@
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define DELTA_PROBEABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 10)
+  #define DELTA_PROBEABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 40)
   #define LEFT_PROBE_BED_POSITION -(DELTA_PROBEABLE_RADIUS)
   #define RIGHT_PROBE_BED_POSITION DELTA_PROBEABLE_RADIUS
   #define FRONT_PROBE_BED_POSITION -(DELTA_PROBEABLE_RADIUS)
@@ -1039,7 +1039,7 @@
 // - If stepper drivers time out, it will need X and Y homing again before Z homing.
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)    // X point for Z homing when homing all axis (G28).
