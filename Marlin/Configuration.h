@@ -425,7 +425,7 @@
   #define DELTA_DIAGONAL_ROD 215.0 // mm
 
   // Horizontal offset from middle of printer to smooth rod center.
-  #define DELTA_SMOOTH_ROD_OFFSET 145.0 // mm
+  #define DELTA_SMOOTH_ROD_OFFSET 143.6 // default 140.0  mm
 
   // Horizontal offset of the universal joints on the end effector.
   #define DELTA_EFFECTOR_OFFSET 19.9 // mm
@@ -437,7 +437,7 @@
   #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET - DELTA_EFFECTOR_OFFSET - DELTA_CARRIAGE_OFFSET) //mm // get this value from auto calibrate
 
   // height from z=0.00 to home position
-  #define DELTA_HEIGHT 250 // get this value from auto calibrate - use G33 C-1 at 1st time calibration
+#define DELTA_HEIGHT 213 // get this value from auto calibrate - use G33 C-1 at 1st time calibration
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
   #define DELTA_PRINTABLE_RADIUS 90.0
@@ -1047,7 +1047,7 @@
 #endif
 
 // Delta only homes to Z
-#define HOMING_FEEDRATE_Z  (80*60)
+#define HOMING_FEEDRATE_Z  (50*60)
 
 //=============================================================================
 //============================= Additional Features ===========================
@@ -1065,6 +1065,7 @@
 //define this to enable EEPROM support
 //#define EEPROM_SETTINGS
 
+#define EEPROM_SETTINGS
 #if ENABLED(EEPROM_SETTINGS)
   // To disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
   #define EEPROM_CHITCHAT // Please keep turned on if you can.
