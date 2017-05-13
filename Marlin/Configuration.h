@@ -367,7 +367,7 @@
 // or to allow moving the extruder regardless of the hotend temperature.
 // *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
 #define PREVENT_COLD_EXTRUSION
-#define EXTRUDE_MINTEMP 200
+#define EXTRUDE_MINTEMP 175
 
 // This option prevents a single extrusion longer than EXTRUDE_MAXLENGTH.
 // Note that for Bowden Extruders a too-small value here may prevent loading.
@@ -1269,7 +1269,7 @@
  * IMPORTANT: The U8glib library is required for Full Graphic Display!
  *            https://github.com/olikraus/U8glib_Arduino
  */
-#define ULTRA_LCD   // Character based
+//#define ULTRA_LCD   // Character based
 //#define DOGLCD      // Full graphics display
 
 /**
@@ -1664,7 +1664,7 @@
  */
 //#define FILAMENT_WIDTH_SENSOR
 
-#define DEFAULT_NOMINAL_FILAMENT_DIA 1.75  // (mm) Diameter of the filament generally used (3.0 or 1.75mm), also used in the slicer. Used to validate sensor reading.
+#define DEFAULT_NOMINAL_FILAMENT_DIA 1.75   // (mm) Diameter of the filament generally used (3.0 or 1.75mm), also used in the slicer. Used to validate sensor reading.
 
 #if ENABLED(FILAMENT_WIDTH_SENSOR)
   #define FILAMENT_SENSOR_EXTRUDER_NUM 0    // Index of the extruder that has the filament sensor (0,1,2,3)
